@@ -77,8 +77,8 @@ public class Converter {
 				return "Selection Not Found!";
 			}
 
-			}
-		}
+			}//end switch
+		}//end while
 		return "Selection Not Found!";
 	}
 
@@ -127,8 +127,8 @@ public class Converter {
 			default: {
 				System.out.println("Second unit not selected");
 				break;
-			}
-			}
+			}//end sub
+			}//end oz main
 			break;
 
 		}
@@ -166,9 +166,9 @@ public class Converter {
 				System.out.println("Second unit not selected");
 				break;
 			}
-			}
+			}//end sub
 			break;
-		}
+		}//end cup main
 		
 		case "pint":{
 			switch (unit2.trim()) {
@@ -205,10 +205,10 @@ public class Converter {
 				System.out.println("Second unit not selected");
 				break;
 			}
-			}
+			}//end sub
 			break;
 		
-		}
+		}//end pint main
 		case "quart": {
 			switch (unit2.trim()) {
 
@@ -241,9 +241,9 @@ public class Converter {
 				System.out.println("Second unit not selected");
 				break;
 			}
-			}
+			}//end sub
 			break;
-		}
+		}//end quart main
 
 		case "gallon": {
 			switch (unit2.trim()) {
@@ -277,9 +277,9 @@ public class Converter {
 				System.out.println("Second unit not selected");
 				break;
 			}
-			}
+			}//end sub case
 		
-		}//end nested switch statement
+		}//end gallon main
 
 		default: {
 			System.out.println("Not a Selection");
@@ -314,14 +314,20 @@ public class Converter {
 
 		String unit2 = conv.menuSelection(scanIn);
 		
+		//Message
 		System.out.println("Please Enter Quantity : \n");
-
+		
+		//create  quantity variable for conversion method
+		
 		double qty = Double.parseDouble(scanIn.next().trim());
 		
+		//Message
 		System.out.println(unit1 + " => " +  unit2);
 		
+		//Conversion Method
 		conv.conversion(qty, unit1, unit2);
-
+		
+		//Closing scanner 
 		scanIn.close();
 /*
 		// used to clear the screen in cmd line
