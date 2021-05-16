@@ -27,7 +27,7 @@ public class Converter {
 	// menu method used to print the menu to the screen
 	public void menu() {
 
-		String menu = "1. Oz \n" + "2. cup \n" + "3. pint \n" + "4. quart \n" + "5. gallon \n";
+		String menu = "1. Oz \n" + "2. cup \n" + "3. pint \n" + "4. quart \n" + "5. gallon \n"+"6. quit \n";
 
 		System.out.println(menu);
 
@@ -70,6 +70,11 @@ public class Converter {
 
 			case "5": {
 				return "gallon";
+
+			}
+			
+			case "6": {
+				System.exit(0);
 
 			}
 
