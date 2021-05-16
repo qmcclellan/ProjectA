@@ -127,11 +127,11 @@ public class Converter {
 			default: {
 				System.out.println("Second unit not selected");
 				break;
+			}
 			}//end sub
-			}//end oz main
 			break;
 
-		}
+		}//end oz main
 
 		case "cup": {
 			switch (unit2.trim()) {
