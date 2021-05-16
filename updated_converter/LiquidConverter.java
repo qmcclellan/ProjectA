@@ -1,15 +1,9 @@
-package main;
+package updated_converter;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-/*
- * This program is to create a liquid measurement converter
- * 
- * 
- */
-
-public class Converter {
-	
+public class LiquidConverter implements Converter {
 	//Variables of the class
 	
 	private final double ounce = 1;
@@ -18,19 +12,34 @@ public class Converter {
 	private final double quart = 32;
 	private final double gallon = 128;
 
-	// Simple Class Constructor Prints First Message to Screen
-	public Converter() {
-		System.out.println("Please Select First Unit");
-
+	private double qty;
+	private String input1;
+	private String input2;
+	
+	public LiquidConverter() {
+		 
+		System.out.println("Please Enter Amount of Units Then Press Enter");
 	}
 
+
 	// menu method used to print the menu to the screen
-	public void menu() {
+public void menu() {
+String menu = "1. Oz \n" + "2. cup \n" + "3. pint \n" + "4. quart \n" + "5. gallon \n"+"6. quit \n";
 
-		String menu = "1. Oz \n" + "2. cup \n" + "3. pint \n" + "4. quart \n" + "5. gallon \n"+"6. quit \n";
+	System.out.println(menu);
 
-		System.out.println(menu);
+}
 
+
+	
+
+
+
+
+	@Override
+	public double getQty() {
+		// TODO Auto-generated method stub
+		return qty;
 	}
 
 	/*
@@ -46,7 +55,8 @@ public class Converter {
 		//Used to test if user has made input
 		while (!measurement.isEmpty()) {
 
-			switch (measurement) { //Test the input for measurment selection
+			if(measurement.matches("[1-6]+"))
+			switch (measurement) { //Test the input for measurement selection
 
 			case "1": {
 				return "oz";
@@ -89,8 +99,12 @@ public class Converter {
 
 	// used to do the conversion of one unit to another
 
-	public void conversion(double qty, String unit1, String unit2) {
-
+	public void conversion() {
+		double qty = getQty();
+		String unit1 =getInput1();
+		
+		String unit2 = getInput2();
+		
 		double total = 0;
 
 		switch (unit1.trim()) {// main switch statement
@@ -295,50 +309,62 @@ public class Converter {
 		System.out.println(total + " "+ unit2.trim() );
 	}//end conversion method
 
-	public static void main(String[] args) {
-		// Create object of the converter class for menu and selection
 
-		Converter conv = new Converter();
-
-		// show menu
-		conv.menu();
-
-		// Create a scanner object to accept user input
-		Scanner scanIn = new Scanner(System.in);
-
-		// unit one selection
-
-		String unit1 = conv.menuSelection(scanIn);
-
-		// second menu for second user
-		conv.menu();
-
-		System.out.println("Enter Second Unit : ");
-
-		// unit 2 selection
-
-		String unit2 = conv.menuSelection(scanIn);
+	@Override
+	public void setQty(Scanner scanner) {
+		// TODO Auto-generated method stub
+		try {
+		this.qty = scanner.nextDouble();
+		}catch(InputMismatchException ime) {
+			System.out.println("Please enter Numeric Value : ");
+			this.qty = scanner.nextDouble();
+		}
 		
-		//Message
-		System.out.println("Please Enter Quantity : \n");
-		
-		//create  quantity variable for conversion method
-		
-		double qty = Double.parseDouble(scanIn.next().trim());
-		
-		//Message
-		System.out.println(unit1 + " => " +  unit2);
-		
-		//Conversion Method
-		conv.conversion(qty, unit1, unit2);
-		
-		//Closing scanner 
-		scanIn.close();
-/*
-		// used to clear the screen in cmd line
-		System.out.print("\033[H\033[2J");
-		System.out.flush();
-*/
 	}
+
+
+	@Override
+	public void setInput1(String string) {
+		// TODO Auto-generated method stub
+		String input = string;
+		
+		if(!input.isBlank()) {
+			this.input1 = input;
+		}
+		
+		
+	}
+
+
+	@Override
+	public String getInput1() {
+		// TODO Auto-generated method stub
+		return input1;
+	}
+
+
+	@Override
+	public void setInput2(String string) {
+		
+		// TODO Auto-generated method stub
+		String input = string;
+		
+		if(!input.isBlank()) {
+			this.input2 = input;
+		}
+		
+	}
+
+
+	@Override
+	public String getInput2() {
+		// TODO Auto-generated method stub
+		return input2;
+	}
+
+
+
+
+
 
 }
