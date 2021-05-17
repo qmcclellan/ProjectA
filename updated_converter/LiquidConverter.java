@@ -4,8 +4,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class LiquidConverter implements Converter {
-	//Variables of the class
-	
+	// Variables of the class
+
 	private final double ounce = 1;
 	private final double cup = 8;
 	private final double pint = 16;
@@ -15,28 +15,21 @@ public class LiquidConverter implements Converter {
 	private double qty;
 	private String input1;
 	private String input2;
-	
+
 	public LiquidConverter() {
-		 
+
 		System.out.println("Please Enter Amount of Units Then Press Enter");
 	}
 
-
 	// menu method used to print the menu to the screen
-public void menu() {
-String menu = "1. Oz \n" + "2. cup \n" + "3. pint \n" + "4. quart \n" + "5. gallon \n"+"6. quit \n";
+	public void menu() {
+		String menu = "1. Oz \n" + "2. cup \n" + "3. pint \n" + "4. quart \n" + "5. gallon \n" + "6. quit \n";
 
-	System.out.println(menu);
+		System.out.println(menu);
 
-}
-
-
-	
+	}
 
 
-
-
-	@Override
 	public double getQty() {
 		// TODO Auto-generated method stub
 		return qty;
@@ -47,53 +40,53 @@ String menu = "1. Oz \n" + "2. cup \n" + "3. pint \n" + "4. quart \n" + "5. gall
 	 * statement to check if scanner is empty if it isn't empty switches to the case
 	 * provided
 	 */
-
+	
 	public String menuSelection(Scanner scanner) {
 
 		String measurement = scanner.next();
 
-		//Used to test if user has made input
+		// Used to test if user has made input
 		while (!measurement.isEmpty()) {
 
-			if(measurement.matches("[1-6]+"))
-			switch (measurement) { //Test the input for measurement selection
+			if (measurement.matches("[1-6]+"))
+				switch (measurement) { // Test the input for measurement selection
 
-			case "1": {
-				return "oz";
+				case "1": {
+					return "oz";
 
-			}
+				}
 
-			case "2": {
-				return "cup";
+				case "2": {
+					return "cup";
 
-			}
+				}
 
-			case "3": {
-				return "pint";
+				case "3": {
+					return "pint";
 
-			}
+				}
 
-			case "4": {
-				return "quart";
+				case "4": {
+					return "quart";
 
-			}
+				}
 
-			case "5": {
-				return "gallon";
+				case "5": {
+					return "gallon";
 
-			}
-			
-			case "6": {
-				System.exit(0);
+				}
 
-			}
+				case "6": {
+					System.exit(0);
 
-			default: {
-				return "Selection Not Found!";
-			}
+				}
 
-			}//end switch
-		}//end while
+				default: {
+					return "Selection Not Found!";
+				}
+
+				}// end switch
+		} // end while
 		return "Selection Not Found!";
 	}
 
@@ -101,10 +94,10 @@ String menu = "1. Oz \n" + "2. cup \n" + "3. pint \n" + "4. quart \n" + "5. gall
 
 	public void conversion() {
 		double qty = getQty();
-		String unit1 =getInput1();
-		
+		String unit1 = getInput1();
+
 		String unit2 = getInput2();
-		
+
 		double total = 0;
 
 		switch (unit1.trim()) {// main switch statement
@@ -147,10 +140,10 @@ String menu = "1. Oz \n" + "2. cup \n" + "3. pint \n" + "4. quart \n" + "5. gall
 				System.out.println("Second unit not selected");
 				break;
 			}
-			}//end sub
+			}// end sub
 			break;
 
-		}//end oz main
+		} // end oz main
 
 		case "cup": {
 			switch (unit2.trim()) {
@@ -167,7 +160,7 @@ String menu = "1. Oz \n" + "2. cup \n" + "3. pint \n" + "4. quart \n" + "5. gall
 			}
 
 			case "pint": {
-				total = qty* cup / pint;
+				total = qty * cup / pint;
 				break;
 			}
 
@@ -185,22 +178,22 @@ String menu = "1. Oz \n" + "2. cup \n" + "3. pint \n" + "4. quart \n" + "5. gall
 				System.out.println("Second unit not selected");
 				break;
 			}
-			}//end sub
+			}// end sub
 			break;
-		}//end cup main
-		
-		case "pint":{
+		} // end cup main
+
+		case "pint": {
 			switch (unit2.trim()) {
 
 			case "oz": {
-				total = qty *pint/ ounce;
+				total = qty * pint / ounce;
 				break;
 
 			}
 
 			case "cup": {
 
-				total = qty * pint / cup ;
+				total = qty * pint / cup;
 				break;
 			}
 
@@ -224,15 +217,15 @@ String menu = "1. Oz \n" + "2. cup \n" + "3. pint \n" + "4. quart \n" + "5. gall
 				System.out.println("Second unit not selected");
 				break;
 			}
-			}//end sub
+			}// end sub
 			break;
-		
-		}//end pint main
+
+		} // end pint main
 		case "quart": {
 			switch (unit2.trim()) {
 
 			case "oz": {
-				total = qty * quart/ ounce;
+				total = qty * quart / ounce;
 				break;
 			}
 
@@ -260,30 +253,30 @@ String menu = "1. Oz \n" + "2. cup \n" + "3. pint \n" + "4. quart \n" + "5. gall
 				System.out.println("Second unit not selected");
 				break;
 			}
-			}//end sub
+			}// end sub
 			break;
-		}//end quart main
+		} // end quart main
 
 		case "gallon": {
 			switch (unit2.trim()) {
 
 			case "oz": {
-				total = qty * gallon/ ounce;
+				total = qty * gallon / ounce;
 				break;
 			}
 
 			case "cup": {
-				total = qty * gallon /  cup;
+				total = qty * gallon / cup;
 				break;
 			}
 
 			case "pint": {
-				total = qty *gallon / pint;
+				total = qty * gallon / pint;
 				break;
 			}
 
 			case "quart": {
-				total = qty * gallon/ quart;
+				total = qty * gallon / quart;
 				break;
 			}
 
@@ -296,75 +289,64 @@ String menu = "1. Oz \n" + "2. cup \n" + "3. pint \n" + "4. quart \n" + "5. gall
 				System.out.println("Second unit not selected");
 				break;
 			}
-			}//end sub case
-		
-		}//end gallon main
+			}// end sub case
+
+		} // end gallon main
 
 		default: {
 			System.out.println("Not a Selection");
 			break;
 		}
-		}//end main switch statement
+		}// end main switch statement
 
-		System.out.println(total + " "+ unit2.trim() );
-	}//end conversion method
+		System.out.println(total + " " + unit2.trim());
+	}// end conversion method
 
 
-	@Override
 	public void setQty(Scanner scanner) {
 		// TODO Auto-generated method stub
 		try {
-		this.qty = scanner.nextDouble();
-		}catch(InputMismatchException ime) {
+			this.qty = scanner.nextDouble();
+		} catch (InputMismatchException ime) {
 			System.out.println("Please enter Numeric Value : ");
 			this.qty = scanner.nextDouble();
 		}
-		
+
 	}
 
-
-	@Override
+	
 	public void setInput1(String string) {
 		// TODO Auto-generated method stub
 		String input = string;
-		
-		if(!input.isBlank()) {
+
+		if (!input.isBlank()) {
 			this.input1 = input;
 		}
-		
-		
+
 	}
 
 
-	@Override
 	public String getInput1() {
 		// TODO Auto-generated method stub
 		return input1;
 	}
 
 
-	@Override
 	public void setInput2(String string) {
-		
+
 		// TODO Auto-generated method stub
 		String input = string;
-		
-		if(!input.isBlank()) {
+
+		if (!input.isBlank()) {
 			this.input2 = input;
 		}
-		
+
 	}
 
 
-	@Override
 	public String getInput2() {
 		// TODO Auto-generated method stub
 		return input2;
 	}
-
-
-
-
-
 
 }

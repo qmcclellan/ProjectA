@@ -1,15 +1,15 @@
 package updated_converter;
 
-import java.util.Scanner;
 
 public class Main {
 
 	
 	public static void main(String[] args) {
 		
-		//Scanner scanner = new Scanner(System.in);
 		
 		ConverterFactory cf = new ConverterFactory();
+		
+		cf.menuSelection();
 		
 		cf.setQty();
 		
@@ -22,7 +22,5 @@ public class Main {
 		cf.setInput2( );
 		
 		cf.conversion();
-		
-		//scanner.close();
 	}
 }

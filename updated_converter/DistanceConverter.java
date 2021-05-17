@@ -49,7 +49,6 @@ public class DistanceConverter implements Converter {
 
 
 
-	@Override
 	public void setQty(Scanner scanner) {
 		try {
 		this.qty = scanner.nextDouble();
@@ -61,13 +60,13 @@ public class DistanceConverter implements Converter {
 		
 	}
 	
-	@Override
+	
 	public double getQty() {
 		return qty;
 	}
 	
 	// menu method used to print the menu to the screen
-	@Override
+
 public void menu() {
 String menu = "1. Inch \n" + "2. Foot \n" + "3. Yard \n" + "4. Mile \n"+"5. quit \n";
 
@@ -81,7 +80,7 @@ String menu = "1. Inch \n" + "2. Foot \n" + "3. Yard \n" + "4. Mile \n"+"5. quit
  * provided
  */
 
-@Override
+
 public String menuSelection(Scanner scanner) {
 
 	String measurement = scanner.next();
@@ -129,7 +128,7 @@ public String menuSelection(Scanner scanner) {
 }
 
 // used to do the conversion of one unit to another
-@Override
+
 public void conversion() {
 
 	double qty = getQty();
@@ -153,6 +152,7 @@ public void conversion() {
 		case "foot": {
 
 			total = qty * inch / foot;
+			unit2 = "feet";
 			break;
 		}
 
@@ -182,6 +182,7 @@ public void conversion() {
 
 		case "foot": {
 			total = qty;
+			unit2 = "feet";
 			break;
 		}
 
@@ -215,6 +216,7 @@ public void conversion() {
 		case "foot": {
 
 			total = qty * yard / foot ;
+			unit2 = "feet";
 			break;
 		}
 
@@ -247,6 +249,7 @@ public void conversion() {
 
 		case "foot": {
 			total = qty * mile / foot;
+			unit2 = "feet";
 			break;
 		}
 
@@ -275,6 +278,8 @@ public void conversion() {
 	}//end main switch statement
 
 	System.out.println(total + " "+ unit2.trim() );
+	
+	
 }//end conversion method
 
 
