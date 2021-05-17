@@ -1,6 +1,5 @@
 package updated_converter;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class DistanceConverter implements Converter {
@@ -48,17 +47,12 @@ public class DistanceConverter implements Converter {
 
 
 
-
-	public void setQty(Scanner scanner) {
-		try {
-		this.qty = scanner.nextDouble();
-		}catch(InputMismatchException ime) {
-			System.out.println("Please enter Numeric Value : ");
-			this.qty = scanner.nextDouble();
-			
-			}
-		
-	}
+public void setQty(double qty) {
+	// TODO Auto-generated method stub
+	
+	this.qty = qty;
+	
+}
 	
 	
 	public double getQty() {
@@ -85,9 +79,7 @@ public String menuSelection(Scanner scanner) {
 
 	String measurement = scanner.next();
 
-	//Used to test if user has made input
-	while (!measurement.isEmpty()) {
-		if(measurement.matches("[0-5]+")) {
+		
 		switch (measurement) { //Test the input for measurement selection
 
 		case "1": {
@@ -112,26 +104,34 @@ public String menuSelection(Scanner scanner) {
 
 		case "5": {
 			System.exit(0);
+			break;
 
 		}
 
 		default: {
-			return "Selection Not Found!";
+			System.out.println( "Selection Not Found! \n");
+			
+			menu();
+			
+			return menuSelection( scanner);
+			//menuSelection( scanner);
+			
 		}
-
+			
 		}//end switch
-		
-		}//end if
-		System.out.println("Select Betwenn 1-5");
-	}//end while
-	return "Selection Not Found!";
+
+	
+//	measurement = "Selection Not Found! Please Enter selection!";
+	//menuSelection(scanner);
+	return measurement;
+
 }
 
 // used to do the conversion of one unit to another
 
 public void conversion() {
 
-	double qty = getQty();
+	//double qty = getQty();
 	String unit1 =getInput1();
 	
 	String unit2 = getInput2();
@@ -153,6 +153,10 @@ public void conversion() {
 
 			total = qty * inch / foot;
 			unit2 = "feet";
+			break;
+		}
+		case "yard": {
+			total = qty* inch / yard;
 			break;
 		}
 
@@ -276,11 +280,16 @@ public void conversion() {
 		break;
 	}
 	}//end main switch statement
+	
+	System.out.println(unit1 + " => " + unit2 );
 
 	System.out.println(total + " "+ unit2.trim() );
 	
 	
 }//end conversion method
+
+
+
 
 
 

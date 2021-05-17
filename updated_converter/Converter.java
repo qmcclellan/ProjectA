@@ -10,7 +10,7 @@ public String menuSelection(Scanner scanner);
 
 public void conversion();
 
-public void setQty(Scanner scanner);
+public void setQty(double qty);// may need to change
 
 public double getQty();
 

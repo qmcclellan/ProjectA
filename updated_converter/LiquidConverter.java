@@ -1,6 +1,5 @@
 package updated_converter;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class LiquidConverter implements Converter {
@@ -29,6 +28,12 @@ public class LiquidConverter implements Converter {
 
 	}
 
+
+	public void setQty(double qty) {
+		// TODO Auto-generated method stub
+		this.qty = qty;
+		
+	}
 
 	public double getQty() {
 		// TODO Auto-generated method stub
@@ -298,21 +303,13 @@ public class LiquidConverter implements Converter {
 			break;
 		}
 		}// end main switch statement
+		
+		System.out.println(unit1 + " => " + unit2 );
 
 		System.out.println(total + " " + unit2.trim());
 	}// end conversion method
 
 
-	public void setQty(Scanner scanner) {
-		// TODO Auto-generated method stub
-		try {
-			this.qty = scanner.nextDouble();
-		} catch (InputMismatchException ime) {
-			System.out.println("Please enter Numeric Value : ");
-			this.qty = scanner.nextDouble();
-		}
-
-	}
 
 	
 	public void setInput1(String string) {
@@ -348,5 +345,8 @@ public class LiquidConverter implements Converter {
 		// TODO Auto-generated method stub
 		return input2;
 	}
+
+
+
 
 }
