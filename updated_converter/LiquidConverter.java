@@ -1,9 +1,18 @@
 package updated_converter;
 
 import java.util.Scanner;
+/*
+ * Class creates a converter for liquid standard measurements
+ * 
+ * menu() - prints a menu
+ * 
+ * menuSelection() takes in scanner and selects string based on user input
+ * 
+ * 
+ */
 
 public class LiquidConverter implements Converter {
-	// Variables of the class
+	// Variables of the class and factors for the conversion
 
 	private final double ounce = 1;
 	private final double cup = 8;
@@ -11,10 +20,14 @@ public class LiquidConverter implements Converter {
 	private final double quart = 32;
 	private final double gallon = 128;
 
+	/*
+	 * Variables that will be set in class by user input
+	 */
 	private double qty;
 	private String input1;
 	private String input2;
 
+	// constructor
 	public LiquidConverter() {
 
 		System.out.println("Please Enter Amount of Units Then Press Enter");
@@ -28,15 +41,45 @@ public class LiquidConverter implements Converter {
 
 	}
 
+	// accept scanner input and saves in if not blank
+	public void setInput1(String string) {
+		String input = string;
 
-	public void setQty(double qty) {
-		// TODO Auto-generated method stub
-		this.qty = qty;
-		
+		if (!input.isBlank()) {
+			this.input1 = input;
+		}
+
 	}
 
+//input1 getter
+	public String getInput1() {
+		return input1;
+	}
+
+	// accept scanner input and saves in if not blank
+	public void setInput2(String string) {
+
+		String input = string;
+
+		if (!input.isBlank()) {
+			this.input2 = input;
+		}
+
+	}
+
+//input2 getter
+	public String getInput2() {
+		return input2;
+	}
+
+	// setter for qty variable
+	public void setQty(double qty) {
+		this.qty = qty;
+
+	}
+
+	// getter for qty variable
 	public double getQty() {
-		// TODO Auto-generated method stub
 		return qty;
 	}
 
@@ -45,7 +88,7 @@ public class LiquidConverter implements Converter {
 	 * statement to check if scanner is empty if it isn't empty switches to the case
 	 * provided
 	 */
-	
+
 	public String menuSelection(Scanner scanner) {
 
 		String measurement = scanner.next();
@@ -53,7 +96,8 @@ public class LiquidConverter implements Converter {
 		// Used to test if user has made input
 		while (!measurement.isEmpty()) {
 
-			if (measurement.matches("[1-6]+"))
+			// if user input is a numeric value, if not default
+			if (measurement.matches("[1-6]+")) {
 				switch (measurement) { // Test the input for measurement selection
 
 				case "1": {
@@ -91,8 +135,10 @@ public class LiquidConverter implements Converter {
 				}
 
 				}// end switch
+			} // end if
 		} // end while
-		return "Selection Not Found!";
+
+		return null;
 	}
 
 	// used to do the conversion of one unit to another
@@ -303,50 +349,10 @@ public class LiquidConverter implements Converter {
 			break;
 		}
 		}// end main switch statement
-		
-		System.out.println(unit1 + " => " + unit2 );
+
+		System.out.println(unit1 + " => " + unit2);
 
 		System.out.println(total + " " + unit2.trim());
 	}// end conversion method
-
-
-
-	
-	public void setInput1(String string) {
-		// TODO Auto-generated method stub
-		String input = string;
-
-		if (!input.isBlank()) {
-			this.input1 = input;
-		}
-
-	}
-
-
-	public String getInput1() {
-		// TODO Auto-generated method stub
-		return input1;
-	}
-
-
-	public void setInput2(String string) {
-
-		// TODO Auto-generated method stub
-		String input = string;
-
-		if (!input.isBlank()) {
-			this.input2 = input;
-		}
-
-	}
-
-
-	public String getInput2() {
-		// TODO Auto-generated method stub
-		return input2;
-	}
-
-
-
 
 }

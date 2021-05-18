@@ -2,6 +2,12 @@ package updated_converter;
 
 import java.util.Scanner;
 
+/*
+ * Created an interface that will be implemented by all converter classes
+ * 
+ * All methods are self explanatory the only method that may be redone is the setQty() due to the parameter double to String for scanner.
+ */
+
 public interface Converter {
 
 public void menu();

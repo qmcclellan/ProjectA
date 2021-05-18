@@ -335,7 +335,7 @@ public class Converter {
 		//Closing scanner 
 		scanIn.close();
 /*
-		// used to clear the screen in cmd line
+		// used to clear the screen in cmd line Not really but close
 		System.out.print("\033[H\033[2J");
 		System.out.flush();
 */
